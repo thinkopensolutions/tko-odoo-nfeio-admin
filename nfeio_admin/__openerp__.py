@@ -28,7 +28,7 @@
     'category': 'Localisation',
     'sequence': 38,
     'complexity': 'normal',
-    'description': '''== Interface to NFE.io Odoo Integration for NFS-e ==''',
+    'description': '''== Admin interface to NFE.io Odoo Integration for NFS-e ==''',
     'author': 'ThinkOpen Solutions Brasil',
     'website': 'http://www.thinkopensolution.com.br',
     'depends': ['base',
