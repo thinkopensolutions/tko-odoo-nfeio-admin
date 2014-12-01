@@ -32,6 +32,8 @@
     'author': 'ThinkOpen Solutions Brasil',
     'website': 'http://www.thinkopensolution.com.br',
     'depends': ['base',
+                'l10n_br_base',
+                'nfeio_fetch',
                 ],
     'data': ['security/ir.model.access.csv',
              ],
