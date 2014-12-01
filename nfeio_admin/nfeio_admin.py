@@ -49,6 +49,9 @@ class nfeio_servicomunicipio(osv.Model):
         'rt_csl': fields.float('CSL Withholding'),
         'rt_inss': fields.float('INSS Withholding'),
         'rt_iss': fields.float('ISS Withholding'),
+        #date_start DATETIME
+        #date_end  DATETIME
+        #state  updated or changed or inactive  SELECTION FIELD
         }
     
     _defaults = {
