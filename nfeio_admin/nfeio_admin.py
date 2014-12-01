@@ -33,7 +33,9 @@ class nfeio_servicomunicipio(osv.Model):
     _columns = {
         'name': fields.char('Code', size=64, required=True),
         'description': fields.char('Description', size=256),
-        'state_id': fields.many2one('res.country.state', 'UF'),
+        'country_id': fields.many2one('res.country', 'Country'),
+        'state_id': fields.many2one('res.country.state', 'UF',
+            domain="[('country_id','=',country_id)]"),
         'l10n_br_city_id': fields.many2one(
             'l10n_br_base.city', 'Municipio',
             domain="[('state_id','=',state_id)]"),
@@ -47,6 +49,10 @@ class nfeio_servicomunicipio(osv.Model):
         'rt_csl': fields.float('CSL Withholding'),
         'rt_inss': fields.float('INSS Withholding'),
         'rt_iss': fields.float('ISS Withholding'),
+        }
+    
+    _defaults = {
+        'country_id': lambda self, cr, uid, c: self.pool.get('res.users').browse(cr, uid, uid, c).company_id.country_id.id,
         }
     
     _sql_constraints = [

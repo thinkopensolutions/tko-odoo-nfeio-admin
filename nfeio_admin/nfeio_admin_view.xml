@@ -9,7 +9,7 @@
             <tree string="Serviço Município">
                 <field name="name"/>
                 <field name="state_id"/>
-                <field name="l10n_br_id"/>
+                <field name="l10n_br_city_id"/>
             </tree>
         </field>
     </record>
@@ -18,26 +18,30 @@
         <field name="name">nfeio.servicomunicipio.form</field>
         <field name="model">nfeio.servicomunicipio</field>
         <field name="arch" type="xml">
+            <form>
                 <sheet>
                     <group colspan="4">
-                        <field name="name"/>
-                        <field name="description"/>
-                    </group>
-                    <group string="Cidade">
-                        <field name="state_id"/>
-                        <field name="l10n_br_city_id"/>
-                        <field name="cnae_id"/>
-                        <field name="code_federal"/>
-                        <field name="code_municipal"/>
-                    </group>
-                    <group string="Aliquotas">
-                        <field name="iss"/>
-                        <field name="rt_ir"/>
-                        <field name="rt_pis"/>
-                        <field name="rt_cofins"/>
-                        <field name="rt_csl"/>
-                        <field name="rt_inss"/>
-                        <field name="rt_iss"/>
+                        <group colspan="4">
+                            <field name="name"/>
+                            <field name="description"/>
+                        </group>
+                        <group string="Município">
+                            <field name="country_id" invisible="1"/>
+                            <field name="state_id"/>
+                            <field name="l10n_br_city_id"/>
+                            <field name="cnae_id"/>
+                            <field name="code_federal"/>
+                            <field name="code_municipal"/>
+                        </group>
+                        <group string="Alíquotas">
+                            <field name="iss"/>
+                            <field name="rt_ir"/>
+                            <field name="rt_pis"/>
+                            <field name="rt_cofins"/>
+                            <field name="rt_csl"/>
+                            <field name="rt_inss"/>
+                            <field name="rt_iss"/>
+                        </group>
                     </group>
                 </sheet>
             </form>
@@ -67,16 +71,25 @@
         </field>
     </record>
     
-    <menuitem
-        id="menu_nfeio"
-        name="NFE.io"
-        parent="base.menu_custom"/>
-    
-    <record model="ir.actions.act_window" id="nfeio_form">
+    <record model="ir.actions.act_window" id="nfeio_action">
         <field name="name">Serviço Município</field>
         <field name="res_model">nfeio.servicomunicipio</field>
         <field name="view_type">form</field>
         <field name="view_mode">tree,form</field>
     </record>
     
+    <menuitem
+        id="menu_nfeio"
+        name="NFE.io"
+        parent="base.menu_custom"
+        sequence="7"/>
+            
+    <menuitem
+        id="menu_nfeio_servicomunicipio"
+        name="Serviço Município"
+        parent="menu_nfeio"
+        action="nfeio_action"
+        sequence="10"/>
+    
 </data>
+</openerp>
