@@ -24,7 +24,7 @@
 
 {
     'name': 'Admin interface for NFE.io Odoo Integration for NFS-e',
-    'version': '0.028',
+    'version': '0.01',
     'category': 'Localisation',
     'sequence': 38,
     'complexity': 'normal',
@@ -36,6 +36,7 @@
                 'nfeio_fetch',
                 ],
     'data': ['security/ir.model.access.csv',
+             'nfeio_admin_view.xml',
              ],
     'installable': True,
     'application': False,
