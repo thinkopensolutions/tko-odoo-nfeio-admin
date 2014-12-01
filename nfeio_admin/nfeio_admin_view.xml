@@ -1,0 +1,82 @@
+<?xml version="1.0" ?>
+<openerp>
+<data>
+    
+    <record model="ir.ui.view" id="view_nfeio_tree">
+        <field name="name">nfeio.servicomunicipio.tree</field>
+        <field name="model">nfeio.servicomunicipio</field>
+        <field name="arch" type="xml">
+            <tree string="Serviço Município">
+                <field name="name"/>
+                <field name="state_id"/>
+                <field name="l10n_br_id"/>
+            </tree>
+        </field>
+    </record>
+    
+    <record model="ir.ui.view" id="view_nfeio_form">
+        <field name="name">nfeio.servicomunicipio.form</field>
+        <field name="model">nfeio.servicomunicipio</field>
+        <field name="arch" type="xml">
+                <sheet>
+                    <group colspan="4">
+                        <field name="name"/>
+                        <field name="description"/>
+                    </group>
+                    <group string="Cidade">
+                        <field name="state_id"/>
+                        <field name="l10n_br_city_id"/>
+                        <field name="cnae_id"/>
+                        <field name="code_federal"/>
+                        <field name="code_municipal"/>
+                    </group>
+                    <group string="Aliquotas">
+                        <field name="iss"/>
+                        <field name="rt_ir"/>
+                        <field name="rt_pis"/>
+                        <field name="rt_cofins"/>
+                        <field name="rt_csl"/>
+                        <field name="rt_inss"/>
+                        <field name="rt_iss"/>
+                    </group>
+                </sheet>
+            </form>
+        </field>
+    </record>
+    
+    <record model="ir.ui.view" id="nfeio_filter">
+        <field name="name">nfeio.servicomunicipio.filter</field>
+        <field name="model">nfeio.servicomunicipio</field>
+        <field name="arch" type="xml">
+            <search string="NFE.io Pesquisa">
+                <field name="name"/>
+                <field name="description"/>
+                <field name="state_id"/>
+                <field name="l10n_br_city_id"/>
+                <field name="cnae_id"/>
+                <field name="code_federal"/>
+                <field name="code_municipal"/>
+                <group expand="0" string="Group By...">
+                    <filter string="Estado Federal" domain="[]" context="{'group_by':'state_id'}"/>
+                    <filter string="Município" domain="[]" context="{'group_by':'l10n_br_city_id'}"/>
+                    <filter string="CNAE" domain="[]" context="{'group_by':'cnae_id'}"/>
+                    <filter string="Código Federal" domain="[]" context="{'group_by':'code_federal'}"/>
+                    <filter string="Código Municipal" domain="[]" context="{'group_by':'code_municipal'}"/>
+                </group>
+            </search>
+        </field>
+    </record>
+    
+    <menuitem
+        id="menu_nfeio"
+        name="NFE.io"
+        parent="base.menu_custom"/>
+    
+    <record model="ir.actions.act_window" id="nfeio_form">
+        <field name="name">Serviço Município</field>
+        <field name="res_model">nfeio.servicomunicipio</field>
+        <field name="view_type">form</field>
+        <field name="view_mode">tree,form</field>
+    </record>
+    
+</data>

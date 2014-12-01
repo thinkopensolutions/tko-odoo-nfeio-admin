@@ -24,7 +24,7 @@
 
 {
     'name': 'Admin interface for NFE.io Odoo Integration for NFS-e',
-    'version': '0.028',
+    'version': '0.01',
     'category': 'Localisation',
     'sequence': 38,
     'complexity': 'normal',
@@ -32,8 +32,11 @@
     'author': 'ThinkOpen Solutions Brasil',
     'website': 'http://www.thinkopensolution.com.br',
     'depends': ['base',
+                'l10n_br_base',
+                'nfeio_fetch',
                 ],
     'data': ['security/ir.model.access.csv',
+             'nfeio_admin_view.xml',
              ],
     'installable': True,
     'application': False,
